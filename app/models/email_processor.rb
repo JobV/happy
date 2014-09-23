@@ -1,5 +1,9 @@
 class EmailProcessor
-  def self.process(email)
-    Response.create!({ body: email.body, email: email.from })
+  def initialize(email)
+    @email = email
+  end
+
+  def process
+    Response.create!({ body: @email.body, email: @email.from })
   end
 end
