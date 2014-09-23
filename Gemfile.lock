@@ -81,7 +81,7 @@ GEM
     griddler (1.0.0)
       htmlentities
       rails (>= 3.2.0)
-    griddler-sendgrid (0.0.1)
+    griddler-mandrill (1.0.1)
       griddler
     guard (2.6.1)
       formatador (>= 0.2.4)
@@ -247,7 +247,7 @@ DEPENDENCIES
   factory_girl_rails
   foreman
   griddler
-  griddler-sendgrid
+  griddler-mandrill
   guard
   guard-rspec
   guard-shell
