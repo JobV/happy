@@ -1,0 +1,7 @@
+%h1 Responses
+
+- if @responses.count > 0
+  = @responses.each do |response|
+    %p= response.body
+- else
+  Nothing here
