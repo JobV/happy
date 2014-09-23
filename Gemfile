@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,6 +32,10 @@ gem 'haml'
 gem 'griddler'
 gem 'griddler-mandrill'
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
   gem 'spring'
   gem 'guard'
@@ -54,4 +58,5 @@ group :test, :development do
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'sqlite3'
 end
