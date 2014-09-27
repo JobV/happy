@@ -4,6 +4,6 @@ class EmailProcessor
   end
 
   def process
-    Response.create!({ body: @email.body, email: @email.from })
+    Response.create!(body: @email.body, email: @email.from )
   end
 end
