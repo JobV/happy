@@ -1,12 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$sidebar-width: 300px;
+
 html, body {
   height: 100%;
 }
 
 .left-bar {
-  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $sidebar-width;
   background: #555;
   height: 100%;
 
@@ -16,4 +21,11 @@ html, body {
     margin: 0;
     color: #fff;
   }
+}
+
+.main {
+  margin-left: $sidebar-width;
+}
+.header {
+  padding: 10px 15px;
 }

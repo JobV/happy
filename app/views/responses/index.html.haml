@@ -1,11 +1,9 @@
-.left-bar
-  %h1.logo Happiness
+= render 'layouts/leftbar'
+.main
+  %h1 Responses
 
-
-%h1 Responses
-
-- if @responses.count > 0
-  = @responses.each do |response|
-    %p= response.body
-- else
-  Nothing here
+  - if @responses.count > 0
+    = @responses.each do |response|
+      %p= response.body
+  - else
+    Nothing here
