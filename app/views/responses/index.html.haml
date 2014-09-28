@@ -1,6 +1,7 @@
 = render 'layouts/leftbar'
 .main
-  %h1 Responses
+  .header
+    %h1 Responses
 
   - if @responses.count > 0
     = @responses.each do |response|

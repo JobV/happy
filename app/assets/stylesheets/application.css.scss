@@ -20,12 +20,47 @@ html, body {
     padding: 15px;
     margin: 0;
     color: #fff;
+    a {
+      color: #fff;
+      transition: all 0.3s;
+      &:hover {
+        color: #ccc;
+        text-decoration: none;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+    text-transform: uppercase;
+
+    li {
+      width: 300px;
+      background: #444;
+      padding: 10px;
+      transition: all 0.2s;
+      &:hover {
+        background: #777;
+      }
+    }
+
+    li a {
+      color: #aaa;
+      font-weight: 600;
+      font-size: 24px;
+      text-decoration: none;
+    }
   }
 }
 
 .main {
   margin-left: $sidebar-width;
+  padding-left: 15px;
+  h1 {
+    font-size: 68px;
+  }
 }
 .header {
-  padding: 10px 15px;
 }
