@@ -1,4 +1,5 @@
-%h1 Listing people
+%h1 People
+= link_to 'New Person', new_person_path, class: 'btn btn-default btn-lg'
 %table.table
   %thead
     %tr
@@ -20,4 +21,3 @@
         %td= link_to 'Edit', edit_person_path(person)
         %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Person', new_person_path

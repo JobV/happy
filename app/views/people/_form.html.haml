@@ -1,7 +1,7 @@
 = form_for(@person) do |f|
   - if @person.errors.any?
-    #error_explanation
-      %h2
+    .alert.alert-danger
+      %h4
         = pluralize(@person.errors.count, "error")
         prohibited this person from being saved:
       %ul
