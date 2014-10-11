@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :people
+
   root to: 'responses#index'
   resource :responses
   get '/admin', to: 'admin#index', as: :admin
