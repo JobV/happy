@@ -3,5 +3,5 @@
   .header
     %h1 Admin
 
-  = link_to '#', class: 'btn btn-default' do
+  = link_to test_email_path, class: 'btn btn-default', method: :post, remote: true do
     send test email

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#index', as: :admin
   devise_for :users
   mount_griddler
+
+  post '/test_email', to: 'admin#test_email', as: :test_email
 end
