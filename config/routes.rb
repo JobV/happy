@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   mount_griddler
 
   post '/test_email', to: 'admin#test_email', as: :test_email
+  post '/query_happiness', to: 'mail_query#happiness', as: :query_happiness
 end

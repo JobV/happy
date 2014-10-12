@@ -1,6 +1,9 @@
 .header
   %h1 Responses
 
+%p
+  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-default btn-lg', remote: true, method: :post
+
 - if @responses.count > 0
   - @responses.each do |response|
     %p= response.body

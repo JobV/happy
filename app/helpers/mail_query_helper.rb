@@ -1,0 +1,2 @@
+module MailQueryHelper
+end
