@@ -32,6 +32,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'foreman'
   gem 'quiet_assets'
+  gem 'letter_opener'
 end
 
 group :test do
