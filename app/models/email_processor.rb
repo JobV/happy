@@ -4,6 +4,18 @@ class EmailProcessor
   end
 
   def process
-    Response.create!(body: @email.body, email: @email.from[:email] )
+    grade       = body.match /\d{1,2}/
+    response = Response.create(
+      body: body,
+      email: from_email,
+      grade: grade[0].to_i)
+  end
+
+  def body
+    @email.body
+  end
+
+  def from_email
+    @email.from[:email]
   end
 end
