@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :people
 
   root to: 'responses#index'
-  resource :responses
+  resources :responses
   get '/admin', to: 'admin#index', as: :admin
   devise_for :users
   mount_griddler

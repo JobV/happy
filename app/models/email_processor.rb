@@ -4,18 +4,30 @@ class EmailProcessor
   end
 
   def process
-    grade       = body.match /\d{1,2}/
-    response = Response.create(
-      body: body,
-      email: from_email,
-      grade: grade[0].to_i)
+    create_response if person
   end
 
   def body
     @email.body
   end
 
+  def create_response
+    response = Response.create(
+      body: body,
+      email: from_email,
+      grade: grade[0].to_i,
+      person: person)
+  end
+
   def from_email
     @email.from[:email]
+  end
+
+  def grade
+    grade = body.match /\d{1,2}/
+  end
+
+  def person
+    Person.find_by(email: from_email)
   end
 end

@@ -1,14 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
 $sidebar-width: 300px;
 
 html, body {
   height: 100%;
+  font-family: 'Source Sans Pro';
 }
 
 .left-bar {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: $sidebar-width;
@@ -24,7 +25,7 @@ html, body {
       color: #fff;
       transition: all 0.3s;
       &:hover {
-        color: #ccc;
+        color: #777;
         text-decoration: none;
       }
     }
@@ -38,19 +39,21 @@ html, body {
 
     li {
       width: 300px;
-      background: #444;
       padding: 10px;
       transition: all 0.2s;
       &:hover {
         background: #777;
+        color: #555;
       }
     }
 
     li a {
-      color: #aaa;
+      font-weight: 100 !important;
+      color: #fff;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 20px;
       text-decoration: none;
+      letter-spacing: 3px !important;
     }
   }
 }
