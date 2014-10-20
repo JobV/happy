@@ -18,9 +18,8 @@
         %tr
           %td= response.body
           %td= response.grade
-          %td= response.person
+          %td= response.person.full_name
           %td= link_to 'Show', response
-          %td= link_to 'Edit', edit_response_path(response)
           %td= link_to 'Destroy', response, method: :delete
 - else
   Nothing here

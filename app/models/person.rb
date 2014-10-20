@@ -19,4 +19,8 @@ class Person < ActiveRecord::Base
            presence: true
 
   has_many :responses
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
