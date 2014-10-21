@@ -18,7 +18,7 @@
         %tr
           %td= response.body
           %td= response.grade
-          %td= response.person.first_name if person && person.first_name
+          %td= response.person.first_name if response.person && response.person.first_name
           %td= link_to 'Show', response
           %td= link_to 'Destroy', response, method: :delete
 - else
