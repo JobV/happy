@@ -17,10 +17,13 @@ gem 'simple_form'
 gem 'haml'
 gem 'griddler'
 gem 'griddler-mandrill'
+gem 'chartkick'
+gem 'groupdate'
+gem 'pg'
+gem 'rails_admin'
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
 
 group :development do
