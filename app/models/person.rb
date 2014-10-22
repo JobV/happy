@@ -23,4 +23,16 @@ class Person < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def last_response_grade
+    responses.last.grade if responses.last
+  end
+
+  def average_grade
+    responses.average(:grade)
+  end
+
+  def average_grade_last_3_responses
+    responses.order('id desc').limit(3).map { |c| c.grade }.sum / 3
+  end
 end

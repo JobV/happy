@@ -16,5 +16,7 @@ FactoryGirl.define do
   factory :response do
     body "MyText"
     email "MyString"
+    grade 3
+    person
   end
 end
