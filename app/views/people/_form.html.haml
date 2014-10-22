@@ -7,25 +7,20 @@
       %ul
         - @person.errors.full_messages.each do |message|
           %li= message
-  .field
+  .form-group
     = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  .field
+    = f.text_field :first_name, class: 'form-control'
+  .form-group
     = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  .field
+    = f.text_field :last_name, class: 'form-control'
+  .form-group
     = f.label :birthdate
-    %br/
-    = f.datetime_select :birthdate
-  .field
+    = f.datetime_select :birthdate, class: 'form-control'
+  .form-group
     = f.label :email
-    %br/
-    = f.text_field :email
-  .field
+    = f.text_field :email, class: 'form-control'
+  .form-group
     = f.label :phone
-    %br/
-    = f.text_field :phone
-  .actions
-    = f.submit
+    = f.text_field :phone, class: 'form-control'
+  .form-group
+    = f.submit 'Submit', class: 'btn btn-blue btn-lg'

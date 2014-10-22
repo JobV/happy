@@ -96,3 +96,8 @@ html, body {
 .btn-blue {
   @include button-variant(#FFF, #00A8EA, #00A8EA);
 }
+
+form {
+  margin-right: 15px;
+  margin-top: 15px;
+}
