@@ -1,8 +1,6 @@
 .header
   %h1 Responses
-
-%p
-  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-default btn-lg', remote: true, method: :post
+  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-blue btn-lg', remote: true, method: :post
 
 - if @responses.count > 0
   %table.table
