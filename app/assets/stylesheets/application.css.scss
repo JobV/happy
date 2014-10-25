@@ -5,7 +5,7 @@ $sidebar-width: 200px;
 
 html, body {
   height: 100%;
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
 }
 
 .left-bar {
@@ -13,16 +13,13 @@ html, body {
   left: 0;
   top: 0;
   width: $sidebar-width;
-  background: #555;
   height: 100%;
+  background: #f9f9f9;
 
   .logo {
-    text-align: center;
-    padding: 15px;
+    padding: 30px 15px;
     margin: 0;
-    color: #fff;
     a {
-      color: #fff;
       transition: all 0.3s;
       &:hover {
         color: #777;
@@ -33,27 +30,19 @@ html, body {
 
   ul {
     list-style: none;
-    padding-left: 0px;
-    text-align: center;
-    text-transform: uppercase;
-
+    padding-left: 15px;
     li {
-      width: $sidebar-width;
-      padding: 10px;
-      transition: all 0.2s;
-      &:hover {
-        background: #777;
-        color: #555;
-      }
+      margin-bottom: 6px;
     }
-
     li a {
-      font-weight: 100 !important;
-      color: #fff;
-      font-weight: 600;
-      font-size: 20px;
-      text-decoration: none;
-      letter-spacing: 3px !important;
+      font-size: 21px;
+      color: #505050;
+      line-height: 28px;
+      font-weight: 200;
+      &:hover {
+        text-decoration: none;
+        font-weight: 600;
+      }
     }
   }
 }
