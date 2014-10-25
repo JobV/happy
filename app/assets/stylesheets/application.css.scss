@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap-custom";
+@import 'people';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,600,700,900);
 $sidebar-width: 200px;
 
@@ -9,12 +10,11 @@ html, body {
 }
 
 .left-bar {
-  position: fixed;
+  float: left;
   left: 0;
   top: 0;
   width: $sidebar-width;
   height: 100%;
-  background: #f9f9f9;
 
   .logo {
     padding: 30px 15px;
@@ -61,6 +61,10 @@ html, body {
   }
 }
 
+.container {
+  font-size: 1.6rem;
+}
+
 .header {
   background: #0083E4;
   color: #fff;
@@ -85,12 +89,26 @@ html, body {
   }
 }
 
+.headerbw {
+  margin-top: 55px;
+}
+
 .btn {
   transition: all 0.15s;
 }
 
 .btn-blue {
   @include button-variant(#FFF, #00A8EA, #00A8EA);
+}
+
+.btn-bw {
+  @include button-variant(#525252, #fff, #525252);
+  border-width: 2px;
+  font-weight: 600;
+  &:hover {
+    background: #525252;
+    color: #fff;
+  }
 }
 
 form {
