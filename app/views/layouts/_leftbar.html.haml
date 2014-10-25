@@ -2,7 +2,7 @@
   %h2.logo= link_to 'Happiness', root_path
 
   %ul
-    %li= link_to 'Dashboard', root_path
-    %li= link_to 'People', people_path
-    %li= link_to 'Conversations', root_path
+    %li= link_to 'Dashboard', root_path, class: "#{'active' if @dashboard_page }"
+    %li= link_to 'People', people_path, class: "#{'active' if @people_page}"
+    %li= link_to 'Conversations', root_path, class: "#{'active' if @conversations_page }"
     %li= link_to 'Admin', admin_path
