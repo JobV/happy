@@ -3,7 +3,7 @@
   %h1 Responses
   = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-blue btn-lg', remote: true, method: :post
 
-= pie_chart Response.group(:grade).count
+= column_chart Response.group(:grade).count
 
 - if @responses.count > 0
   %table.table
