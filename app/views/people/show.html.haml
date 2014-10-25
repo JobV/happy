@@ -1,6 +1,6 @@
 .header
   %h1= @person.full_name
-  %h4= "Birthday in #{distance_of_time_in_words(Time.now, @person.birthdate)}"
+  %h4= "Birthday on #{@person.birthdate.strftime("%B %e")}"
 
   .actions
     = link_to 'Edit', edit_person_path(@person), class: 'btn btn-blue btn-lg'
