@@ -5,7 +5,7 @@
 
 %p#notice= notice
 
-= text_area '#', '#', class: 'reply'
+= text_area '#', '#', class: 'reply', placeholder: "Reply to #{@response.person.first_name}"
 .response= @response.body
 
 
