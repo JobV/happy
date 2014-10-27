@@ -1,10 +1,12 @@
 .headerbw
-  %h1= "#{@response.person.first_name}'s response on #{@response.created_at.strftime("%B %e")}"
+  %h1= "Conversation with #{@response.person.first_name}"
+  .subtitle= "#{@response.created_at.strftime("%B %e")}"
 
 
 %p#notice= notice
 
-= "#{@response.person.first_name} rated #{@response.grade} on #{@response.created_at.strftime("%B %e")}"
-%h2= @response.grade
+= text_area '#', '#', class: 'reply'
+.response= @response.body
 
-%p= @response.body
+
+-# %h2= @response.grade

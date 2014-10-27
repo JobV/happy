@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap-custom";
 @import 'people';
+@import 'responses';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,600,700,900);
 $sidebar-width: 200px;
 
@@ -86,6 +87,19 @@ html, body {
 
 .headerbw {
   margin-top: 55px;
+  h1 {
+    font-weight: 200;
+    font-size: 31px;
+    color: #636363;
+    line-height: 42px;
+    margin-bottom: 0px;
+  }
+  .subtitle {
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9E9E;
+    line-height: 24px;
+  }
 }
 
 .btn {
