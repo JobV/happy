@@ -1,9 +1,8 @@
-.header
+.headerbw
   %h1= @person.full_name
   %h4= "Birthday on #{@person.birthdate.strftime("%B %e")}"
 
-  .actions
-    = link_to 'Edit', edit_person_path(@person), class: 'btn btn-blue btn-lg'
+  = link_to 'Edit', edit_person_path(@person), class: 'btn btn-bw btn-lg'
 .notice= notice
 
 = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)

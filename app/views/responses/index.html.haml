@@ -1,7 +1,6 @@
 - @conversations_page = true
-.header
-  %h1 Responses
-  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-blue btn-lg', remote: true, method: :post
+.headerbw
+  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-bw btn-lg', remote: true, method: :post
 
 = column_chart Response.group(:grade).count
 
