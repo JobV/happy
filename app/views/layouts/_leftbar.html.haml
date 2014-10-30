@@ -6,3 +6,4 @@
     %li= link_to 'People', people_path, class: "#{'active' if @people_page}"
     %li= link_to 'Conversations', responses_path, class: "#{'active' if @conversations_page }"
     %li= link_to 'Admin', admin_path
+    %li= link_to 'Sign out', destroy_user_session_path, method: :delete
