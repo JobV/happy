@@ -8,7 +8,11 @@
 
     = csrf_meta_tags
   %body
-    .container
-      = render 'layouts/leftbar'
-      .main
+    - if current_user
+      .container
+        = render 'layouts/leftbar'
+        .main
+          = yield
+    - else
+      .container
         = yield
