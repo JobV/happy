@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'simple_form'
 gem 'haml'
 gem 'griddler'

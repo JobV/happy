@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/doabit/semantic-ui-sass.git
+  revision: d43beca346cb74f0c3e27212f8acd4f31e1e1629
+  specs:
+    semantic-ui-sass (0.19.3.1)
+      sass (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,8 +49,6 @@ GEM
       execjs
     awesome_print (1.2.0)
     bcrypt (3.1.7)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
     builder (3.2.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -301,7 +306,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-sass
   capybara
   chartkick
   coffee-rails (~> 4.0.0)
@@ -331,6 +335,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (= 5.0.0.beta1)
   sdoc (~> 0.4.0)
+  semantic-ui-sass!
   shoulda-matchers
   simple_form
   spring

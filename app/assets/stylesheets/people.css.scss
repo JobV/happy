@@ -1,35 +1,3 @@
 // Place all the styles related to the people controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.people {
-  margin-top: 50px;
-}
-
-.person {
-  color: #333;
-  padding: 7px 0px;
-  &:hover {
-    background: #f8f8f8;
-  }
-}
-
-.grade {
-  display: inline;
-  background: orange;
-  border-radius: 50px;
-  padding: 3px 10px;
-  color: #fff;
-  font-weight: 700;
-}
-
-.name {
-  display: inline;
-  font-size: 1.9rem;
-  font-weight: 400;
-  margin-left: 10px;
-}
-
-a:hover {
-  text-decoration: none;
-}

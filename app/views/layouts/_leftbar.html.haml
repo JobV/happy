@@ -1,12 +1,14 @@
-.left-bar
-  %h2.logo= link_to 'Happiness', root_path
-
-  %ul
-    %li= link_to 'Dashboard', root_path, class: "#{'active' if @dashboard_page }"
-    %li= link_to 'People', people_path, class: "#{'active' if @people_page}"
-    %li= link_to 'Conversations', responses_path, class: "#{'active' if @conversations_page }"
-    %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+.ui.active.thin.purple.inverted.sidebar.vertical.menu
+  .header.item 2ME.io
+  = link_to root_path, class: 'item' do
+    %i.home.icon
+    Dashboard
+  = link_to responses_path, class: 'item' do
+    %i.comment.outline.icon
+    Conversations
+  = link_to people_path, class: 'item' do
+    %i.users.basic.icon
+    People
+  = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'item'
   - if current_user.admin?
-    %br
-    %ul
-      %li= link_to 'Admin', admin_path
+    = link_to 'Admin', admin_path, class: 'item'

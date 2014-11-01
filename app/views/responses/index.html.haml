@@ -1,11 +1,11 @@
 - @conversations_page = true
 .headerbw
-  = link_to 'Query Happiness', query_happiness_path, class: 'btn btn-bw btn-lg', remote: true, method: :post
+  = link_to 'Query Happiness', query_happiness_path, class: 'ui basic button', remote: true, method: :post
 
 = column_chart Response.group(:grade).count
 
 - if @responses.count > 0
-  %table.table
+  %table.ui.basic.table
     %thead
       %tr
         %th Body
@@ -19,7 +19,7 @@
           %td= response.body
           %td= response.grade
           %td= response.person.first_name if response.person && response.person.first_name
-          %td= link_to 'Show', response
-          %td= link_to 'Destroy', response, method: :delete
+          %td= link_to 'Show', response, class: 'ui small basic button'
+          %td= link_to 'Destroy', response, method: :delete, class: 'ui small basic button'
 - else
   Nothing here

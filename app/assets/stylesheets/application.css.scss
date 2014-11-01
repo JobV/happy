@@ -1,7 +1,4 @@
-@import "bootstrap-sprockets";
-@import "bootstrap-custom";
-@import 'people';
-@import 'responses';
+@import 'semantic-ui';
 @import 'sessions';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,600,700,900);
 $sidebar-width: 200px;
@@ -9,132 +6,26 @@ $sidebar-width: 200px;
 html, body {
   height: 100%;
   font-family: 'Open Sans';
-}
-
-.left-bar {
-  float: left;
-  left: 0;
-  top: 0;
-  width: $sidebar-width;
-  height: 100%;
-
-  .logo {
-    padding: 30px 15px;
-    margin: 0;
-    a {
-      transition: all 0.3s;
-      &:hover {
-        color: #777;
-        text-decoration: none;
-      }
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 15px;
-    li {
-      margin-bottom: 6px;
-    }
-    li a {
-      font-size: 21px;
-      color: #505050;
-      line-height: 28px;
-      font-weight: 200;
-      &:hover {
-        text-decoration: none;
-        font-weight: 600;
-      }
-    }
-    li a.active {
-      font-weight: 600;
-    }
-  }
+  background: #f9f9f9;
 }
 
 .main {
   margin-left: $sidebar-width;
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 1.6rem;
-
-  h1 {
-    font-size: 68px;
-  }
 }
 
-.container {
-  font-size: 1.6rem;
+a {
+  text-decoration: none;
 }
 
-.header {
-  background: #0083E4;
-  color: #fff;
-  margin-left: -15px;
-  margin-right: -15px;
-  padding-left: 15px;
-  padding-bottom: 20px;
-
-  h1 {
-    margin-top: 0px;
-    padding-top: 20px;
-  }
-  h4 {
-    margin-top: -7px;
-    padding-left: 20px;
-    color: rgba(0, 53, 122, 1);
-  }
+.hover-display {
+  opacity: 0 !important
+}
+.hover-show:hover .hover-display {
+  opacity: 1 !important
 }
 
-.headerbw {
-  margin-top: 55px;
-  h1 {
-    font-weight: 200;
-    font-size: 31px;
-    color: #636363;
-    line-height: 42px;
-    margin-bottom: 0px;
-  }
-  .subtitle {
-    font-weight: 200;
-    font-size: 18px;
-    color: #9E9E9E;
-    line-height: 24px;
-  }
-}
-
-.btn {
-  transition: all 0.15s;
-}
-
-.btn-blue {
-  @include button-variant(#FFF, #00A8EA, #00A8EA);
-}
-
-.btn-bw {
-  @include button-variant(#525252, #fff, #525252);
-  border-width: 2px;
-  font-weight: 600;
-  &:hover {
-    background: #525252;
-    color: #fff;
-  }
-}
-
-form {
-  margin-right: 15px;
-  margin-top: 15px;
-}
-
-.notice {
-  line-height: 48px;
-  font-size: 18px;
-  background: #D8D8D8;
-  margin-left: -15px;
-  padding-left: 15px;
-  color: #555;
-}
-
-.float-right {
-  float: right;
+.text-right {
+  text-align: right;
 }

@@ -4,10 +4,11 @@
 #
 #  id         :integer          not null, primary key
 #  body       :text
-#  email      :string(255)
+#  email      :string
 #  created_at :datetime
 #  updated_at :datetime
 #  person_id  :integer
+#  grade      :integer          default("0")
 #
 
 require 'rails_helper'

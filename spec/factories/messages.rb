@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id          :integer          not null, primary key
+#  body        :text
+#  person_id   :integer
+#  user_id     :integer
+#  response_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

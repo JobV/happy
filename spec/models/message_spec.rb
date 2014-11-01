@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id          :integer          not null, primary key
+#  body        :text
+#  person_id   :integer
+#  user_id     :integer
+#  response_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Message, :type => :model do

@@ -1,17 +1,25 @@
-.headerbw
-  %h1= "Conversation with #{@response.person.first_name}"
-  .subtitle= "#{@response.created_at.strftime("%B %e")}"
+%h1.ui.header
+  = "Conversation with #{@response.person.first_name}"
+  .sub.header= "#{@response.created_at.strftime("%B %e")}"
 
 
 %p#notice= notice
 .replyform
   = form_for @reply, remote: true do |f|
-    = f.text_area :body, class: 'reply', placeholder: "Reply to #{@response.person.first_name}"
-    = f.submit 'Send', class: 'btn btn-default btn-lg float-right'
+    .ui.form
+      .field
+        = f.hidden_field :response_id, value: @response.id
+        = f.text_area :body, placeholder: "Reply to #{@response.person.first_name}"
+      = f.submit 'Send', class: 'ui blue button'
 
 - @messages.each do |message|
-  .response= message.inspect
-.response= @response.body
+  .ui.segment
+    - if message.person
+      %b= "#{message.person.first_name} said:"
+      %br
+    = message.body
+.ui.blue.segment= @response.body
 
-
+%br
+%br
 -# %h2= @response.grade

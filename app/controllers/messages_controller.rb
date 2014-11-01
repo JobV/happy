@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.new(response_params)
+    @message.person = @message.response.person
+    @message.user = current_user
 
     respond_to do |format|
       if @message.save
@@ -14,6 +16,6 @@ class MessagesController < ApplicationController
   private
 
   def response_params
-    params.require(:message).permit(:body, :person_id, :user_id, :response_id)
+    params.require(:message).permit(:body, :response_id)
   end
 end
