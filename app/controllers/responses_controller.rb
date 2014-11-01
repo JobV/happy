@@ -9,6 +9,8 @@ class ResponsesController < ApplicationController
   # GET /responses/1
   # GET /responses/1.json
   def show
+    @reply = @response.messages.new
+    @messages = Message.all
   end
 
   # GET /responses/new

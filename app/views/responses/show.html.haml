@@ -4,8 +4,13 @@
 
 
 %p#notice= notice
+.replyform
+  = form_for @reply, remote: true do |f|
+    = f.text_area :body, class: 'reply', placeholder: "Reply to #{@response.person.first_name}"
+    = f.submit 'Send', class: 'btn btn-default btn-lg float-right'
 
-= text_area '#', '#', class: 'reply', placeholder: "Reply to #{@response.person.first_name}"
+- @messages.each do |message|
+  .response= message.inspect
 .response= @response.body
 
 

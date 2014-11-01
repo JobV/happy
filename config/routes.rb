@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :people
+  resources :messages
 
   root to: 'dashboard#index'
   resources :responses
