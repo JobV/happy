@@ -1,17 +1,17 @@
-= simple_form_for(@person, html: { class: 'form-vertical'} ) do |f|
+= simple_form_for(@person, html: { class: 'ui form segment'} ) do |f|
   - if @person.errors.any?
-    .alert.alert-danger
+    .ui.error.message
       %h4
         = pluralize(@person.errors.count, "error")
         prohibited this person from being saved:
       %ul
         - @person.errors.full_messages.each do |message|
           %li= message
-  .form-group= f.input :first_name, input_html: { class: 'form-control' }
-  .form-group= f.input :last_name,  input_html: { class: 'form-control' }
-  .form-group
+  .field= f.input :first_name
+  .field= f.input :last_name
+  .field
     %label Birthday
     = f.datetime_select :birthdate
-  .form-group= f.input :email,  input_html: { class: 'form-control' }
-  .form-group= f.input :phone,  input_html: { class: 'form-control' }
-  .form-group= f.submit 'Submit', class: 'btn btn-blue btn-lg'
+  .field= f.input :email
+  .field= f.input :phone
+  .field= f.submit 'Submit', class: 'ui blue submit button'
