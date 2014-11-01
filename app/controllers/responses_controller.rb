@@ -10,7 +10,7 @@ class ResponsesController < ApplicationController
   # GET /responses/1.json
   def show
     @reply = @response.messages.new
-    @messages = Message.all
+    @messages = Message.all.order(created_at: :desc)
   end
 
   # GET /responses/new
