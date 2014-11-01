@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101215006) do
+ActiveRecord::Schema.define(version: 20141101222924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,16 @@ ActiveRecord::Schema.define(version: 20141101215006) do
     t.integer  "person_id"
     t.integer  "user_id"
     t.integer  "response_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "user_author", default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "user_author",     default: false
+    t.integer  "organisation_id"
+  end
+
+  create_table "organisations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: true do |t|
@@ -34,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141101215006) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organisation_id"
   end
 
   create_table "people_questions", id: false, force: true do |t|
@@ -58,7 +66,8 @@ ActiveRecord::Schema.define(version: 20141101215006) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
-    t.integer  "grade",      default: 0
+    t.integer  "grade",           default: 0
+    t.integer  "organisation_id"
   end
 
   create_table "users", force: true do |t|
@@ -75,6 +84,7 @@ ActiveRecord::Schema.define(version: 20141101215006) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+    t.integer  "organisation_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

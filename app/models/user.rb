@@ -25,4 +25,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :messages
+  belongs_to :organisation
 end
