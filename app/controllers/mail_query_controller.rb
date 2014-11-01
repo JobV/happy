@@ -8,6 +8,7 @@ class MailQueryController < ApplicationController
         flash[:error] << "Something went wrong with #{p.first_name}"
       end
     end
+    Question.create(user: current_user)
     respond_to do |f|
       f.js {}
       f.html { redirect_to root_path }

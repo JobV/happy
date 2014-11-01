@@ -4,7 +4,11 @@ class EmailProcessor
   end
 
   def process
-    create_response if person
+    if outstanding_query?
+      create_response
+    else
+      add_to_last_conversation
+    end
   end
 
   def body
@@ -29,5 +33,16 @@ class EmailProcessor
 
   def person
     Person.find_by(email: from_email)
+  end
+
+  def outstanding_query?
+    person.outstanding_question? if person
+  end
+
+  def add_to_last_conversation
+    person.responses.last.messages.create(
+      body: body,
+      person: person
+    )
   end
 end

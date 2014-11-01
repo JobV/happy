@@ -1,8 +1,12 @@
-.headerbw
-  %h1= @person.full_name
-  %h4= "Birthday on #{@person.birthdate.strftime("%B %e")}"
+%h2.ui.header
+  = @person.full_name
+  .sub.header
+    = "Birthday on #{@person.birthdate.strftime("%B %e")}"
+    - if @person.has_outstanding_query?
+      %br
+      = "Has an outstanding question."
 
-  = link_to 'Edit', edit_person_path(@person), class: 'btn btn-bw btn-lg'
+= link_to 'Edit', edit_person_path(@person), class: 'ui blue button'
 .notice= notice
-
+%br
 = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)

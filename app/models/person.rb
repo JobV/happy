@@ -20,6 +20,7 @@ class Person < ActiveRecord::Base
 
   has_many :responses
   has_many :messages
+  has_and_belongs_to_many :questions
 
   def full_name
     "#{first_name} #{last_name}"
@@ -36,4 +37,13 @@ class Person < ActiveRecord::Base
   def average_grade_last_3_responses
     responses.order('id desc').limit(3).map { |c| c.grade }.sum / 3
   end
+
+  # if the last response from the person is before the last question,
+  # there is an outstanding query
+  def outstanding_query?
+    if Question.any? && responses.any?
+      responses.last.created_at < Question.last.created_at
+    end
+  end
+  alias_method :has_outstanding_query?, :outstanding_query?
 end

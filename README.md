@@ -17,6 +17,7 @@
 
 1. Receive email
 
-2. Check if contains hash (anti-ddos) - implement later when not lazy
+2. Check if outstanding query request
 
-3. Check if user exists as person
+  if yes => create new conversation
+  if no => add to current conversation
