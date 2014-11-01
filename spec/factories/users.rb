@@ -16,11 +16,16 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  admin                  :boolean          default("false")
+#  organisation_id        :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
   factory :user do
+    email 'j@b.com'
+    password 'thisiscool'
+    password_confirmation 'thisiscool'
+    admin false
   end
 end

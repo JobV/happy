@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  admin                  :boolean          default("false")
+#  organisation_id        :integer
 #
 
 class User < ActiveRecord::Base

@@ -2,14 +2,15 @@
 #
 # Table name: people
 #
-#  id         :integer          not null, primary key
-#  first_name :string
-#  last_name  :string
-#  birthdate  :datetime
-#  email      :string
-#  phone      :string
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  first_name      :string
+#  last_name       :string
+#  birthdate       :datetime
+#  email           :string
+#  phone           :string
+#  created_at      :datetime
+#  updated_at      :datetime
+#  organisation_id :integer
 #
 
 require 'rails_helper'

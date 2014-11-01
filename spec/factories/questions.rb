@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  title      :string
 #  body       :text
-#  user       :integer
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -16,6 +16,5 @@ FactoryGirl.define do
   factory :question do
     title "MyString"
     body "MyText"
-    user 1
   end
 end

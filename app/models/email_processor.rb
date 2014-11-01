@@ -1,12 +1,13 @@
 class EmailProcessor
   def initialize(email)
     @email = email
+    @person = person
   end
 
   def process
-    if outstanding_query?
+    if @person && outstanding_query?
       create_response
-    else
+    elsif @person
       add_to_last_conversation
     end
   end
@@ -20,11 +21,11 @@ class EmailProcessor
       body: body,
       email: from_email,
       grade: grade[0].to_i,
-      person: person)
+      person: @person)
   end
 
   def from_email
-    @email.from[:email]
+    @email.from
   end
 
   def grade
@@ -36,13 +37,13 @@ class EmailProcessor
   end
 
   def outstanding_query?
-    person.outstanding_question? if person
+    @person.outstanding_query?
   end
 
   def add_to_last_conversation
-    person.responses.last.messages.create(
+    @person.responses.last.messages.create(
       body: body,
-      person: person
+      person_id: @person.id
     )
   end
 end
