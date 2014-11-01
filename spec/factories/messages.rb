@@ -9,6 +9,7 @@
 #  response_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_author :boolean          default("false")
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

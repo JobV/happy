@@ -9,12 +9,16 @@
     .ui.form
       .field
         = f.hidden_field :response_id, value: @response.id
+        = f.hidden_field :user_author, value: true
         = f.text_area :body, placeholder: "Reply to #{@response.person.first_name}"
       = f.submit 'Send', class: 'ui blue button'
 
 - @messages.each do |message|
   .ui.segment
-    - if message.person
+    - if message.user_author
+      %b= "You said:"
+      %br
+    - elsif message.person
       %b= "#{message.person.first_name} said:"
       %br
     = message.body
