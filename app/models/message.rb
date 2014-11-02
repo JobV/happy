@@ -23,6 +23,10 @@ class Message < ActiveRecord::Base
   belongs_to :organisation
 
   def body
-    ActionView::Base.full_sanitizer.sanitize(raw_html)
+    unless user_author
+      ActionView::Base.full_sanitizer.sanitize(raw_html)
+    else
+      attribute('body')
+    end
   end
 end

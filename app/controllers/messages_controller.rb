@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        email_person(@message) if @message.user_author
         format.js {}
       else
         format.js {}
@@ -17,5 +18,14 @@ class MessagesController < ApplicationController
 
   def response_params
     params.require(:message).permit(:body, :response_id, :user_author)
+  end
+
+  def email_person(message)
+    begin
+      QuestionMailer.reply(message).deliver_later
+    rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError,
+      Net::SMTPFatalError, Net::SMTPUnknownError => e
+      flash[:error] << "Something went wrong with #{p.first_name}"
+    end
   end
 end
