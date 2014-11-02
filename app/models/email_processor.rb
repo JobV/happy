@@ -63,7 +63,10 @@ class EmailProcessor
   def add_to_last_conversation
     @person.responses.last.messages.create(
       body: body,
-      person_id: @person.id
+      person_id: @person.id,
+      raw_text: raw_text,
+      raw_body: raw_body,
+      raw_html: raw_html
     )
   end
 end
