@@ -2,14 +2,19 @@ require 'rails_helper'
 
 RSpec.describe EmailProcessor, :type => :model do
 
-  context 'user emails after happiness query' do
+  context 'User emails after happiness query' do
     before do
       create(:question)
+      create(:person, email: 'user@email.com')
+      email = build(:email, body: "9 this is an email")
+      @processor = EmailProcessor.new(email)
     end
 
-    it 'parses the number from the body of the email' do
-      email = build(:email, body: "9 this is an email", from: Person.first.email )
-      processor = EmailProcessor.new(email)
+    it 'recognizes that there is an outstanding query' do
+      expect(@processor.outstanding_query?).to eq true
+    end
+
+    it 'the parser parses the number from the body of the email' do
       processor.process
       expect(Response.last.grade).to eq 9
     end

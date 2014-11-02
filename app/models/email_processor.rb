@@ -4,10 +4,13 @@ class EmailProcessor
     @person = person
   end
 
+  # This gets hit with every received email.
+  # Raise was not used with unknown emails, as this is expected to happen.
+  # Raise is a little heavy. Warn is a better option.
   def process
     if @person && outstanding_query?
       create_response
-    elsif @person
+    elsif @person && @person.responses.any?
       add_to_last_conversation
     end
   end
@@ -33,7 +36,11 @@ class EmailProcessor
   end
 
   def person
-    Person.find_by(email: from_email)
+    if person = Person.find_by(email: from_email)
+      return person
+    else
+      warn "Can't find person by #{from_email}"
+    end
   end
 
   def outstanding_query?

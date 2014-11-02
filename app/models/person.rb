@@ -45,6 +45,8 @@ class Person < ActiveRecord::Base
   def outstanding_query?
     if Question.any? && responses.any?
       responses.last.created_at < Question.last.created_at
+    elsif Question.any?
+      true
     end
   end
   alias_method :has_outstanding_query?, :outstanding_query?
