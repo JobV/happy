@@ -1,6 +1,8 @@
 class EmailProcessor
   def initialize(email)
     @email = email
+    @from = @email.from
+    warn "\nXXXXXXXXXX\nFrom address: #{@from}\n"
     @person = person
   end
 
@@ -22,13 +24,9 @@ class EmailProcessor
   def create_response
     response = Response.create(
       body: body,
-      email: from_email,
+      email: @from,
       grade: grade[0].to_i,
       person: @person)
-  end
-
-  def from_email
-    @email.from
   end
 
   def grade
@@ -36,16 +34,11 @@ class EmailProcessor
   end
 
   def person
-    begin
-      if person = Person.find_by(email: from_email)
-        return person
-      else
-        # Do not warn in tests, to keep clean
-        warn "Can't find person by #{from_email}" unless Rails.env == 'test'
-      end
-    rescue PG::Error => e
-      warn e
-      return person = Person.find_by(email: @email.from[:email])
+    if person = Person.find_by(email: @from)
+      return person
+    else
+      # Do not warn in tests, to keep clean
+      warn "Can't find person by #{@from}" unless Rails.env == 'test'
     end
   end
 
