@@ -63,10 +63,10 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => '2me.io' }
   config.action_mailer.smtp_settings = {
       :port =>           '587',
-      :address =>        'smtp.mandrillapp.com',
-      :user_name =>      ENV['MANDRILL_USERNAME'],
-      :password =>       ENV['MANDRILL_APIKEY'],
-      :domain =>         'smtp.mandrillapp.com',
+      :address =>        'smtp.mailgun.org',
+      :user_name =>      'postmaster@2me.io',
+      :password =>       '243f035921e2177ce08233d6d79978d0',
+      :domain =>         'smtp.mailgun.org',
       :authentication => :plain
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

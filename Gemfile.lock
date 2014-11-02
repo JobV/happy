@@ -101,7 +101,7 @@ GEM
     griddler (1.1.0)
       htmlentities
       rails (>= 3.2.0)
-    griddler-mandrill (1.0.1)
+    griddler-mailgun (1.0.1)
       griddler
     groupdate (2.3.0)
       activesupport (>= 3)
@@ -320,7 +320,7 @@ DEPENDENCIES
   factory_girl_rails
   foreman
   griddler
-  griddler-mandrill
+  griddler-mailgun
   groupdate
   guard
   guard-rspec
