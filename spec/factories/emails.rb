@@ -4,7 +4,7 @@ FactoryGirl.define do
     to [{ full: 'to_user@email.com', email: 'to_user@email.com', token: 'to_user', host: 'email.com', name: nil }]
      from({ token: 'from_user', host: 'email.com', email: 'user@email.com', full: 'From User <user@email.com>', name: 'From User' })
     subject 'email subject'
-    body 'Hello! Here is some random content'
+    body "This is a test \n-- Reply ABOVE THIS LINE --\n this is below the line"
     attachments {[]}
 
     trait :with_attachment do

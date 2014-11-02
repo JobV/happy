@@ -11,6 +11,9 @@
 #  updated_at      :datetime         not null
 #  user_author     :boolean          default("false")
 #  organisation_id :integer
+#  raw_body        :text             default("")
+#  raw_html        :text             default("")
+#  raw_text        :text             default("")
 #
 
 class Message < ActiveRecord::Base

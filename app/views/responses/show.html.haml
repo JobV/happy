@@ -22,6 +22,18 @@
       %b= "#{message.person.first_name} said:"
       %br
     = message.body
+  .ui.red.segment
+    raw body
+    %br
+    = message.raw_body
+  .ui.green.segment
+    raw html simple format
+    %br
+    = message.raw_html
+  .ui.purple.segment
+    raw text
+    %br
+    = message.raw_text
 .ui.blue.segment= @response.body
 
 %br

@@ -11,6 +11,9 @@
 #  updated_at      :datetime         not null
 #  user_author     :boolean          default("false")
 #  organisation_id :integer
+#  raw_body        :text             default("")
+#  raw_html        :text             default("")
+#  raw_text        :text             default("")
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

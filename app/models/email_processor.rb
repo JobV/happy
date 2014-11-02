@@ -20,9 +20,24 @@ class EmailProcessor
     @email.body
   end
 
+  def raw_body
+    @email.raw_body ? @email.raw_body : ''
+  end
+
+  def raw_text
+    @email.raw_text ? @email.raw_text : ''
+  end
+
+  def raw_html
+    @email.raw_html ? @email.raw_html : ''
+  end
+
   def create_response
     response = Response.create(
       body: body,
+      raw_text: raw_text,
+      raw_body: raw_body,
+      raw_html: raw_html,
       email: @from,
       grade: grade[0].to_i,
       person: @person)
