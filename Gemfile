@@ -22,6 +22,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'pg'
 gem 'rails_admin'
+gem 'le'
 
 group :production do
   gem 'rails_12factor'
