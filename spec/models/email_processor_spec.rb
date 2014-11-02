@@ -14,8 +14,12 @@ RSpec.describe EmailProcessor, :type => :model do
       expect(@processor.outstanding_query?).to eq true
     end
 
+    it 'creates a new Response on reception of the email' do
+      expect{ @processor.process }.to change{ Response.count }.by(1)
+    end
+
     it 'the parser parses the number from the body of the email' do
-      processor.process
+      @processor.process
       expect(Response.last.grade).to eq 9
     end
   end

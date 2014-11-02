@@ -39,7 +39,8 @@ class EmailProcessor
     if person = Person.find_by(email: from_email)
       return person
     else
-      warn "Can't find person by #{from_email}"
+      # Do not warn in tests, to keep clean
+      warn "Can't find person by #{from_email}" unless Rails.env == 'test'
     end
   end
 
