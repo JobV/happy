@@ -10,6 +10,9 @@
 #  person_id       :integer
 #  grade           :integer          default("0")
 #  organisation_id :integer
+#  raw_body        :text             default("")
+#  raw_html        :text             default("")
+#  raw_text        :text             default("")
 #
 
 require 'rails_helper'

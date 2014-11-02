@@ -10,6 +10,9 @@
 #  person_id       :integer
 #  grade           :integer          default("0")
 #  organisation_id :integer
+#  raw_body        :text             default("")
+#  raw_html        :text             default("")
+#  raw_text        :text             default("")
 #
 
 class Response < ActiveRecord::Base
@@ -17,4 +20,8 @@ class Response < ActiveRecord::Base
   belongs_to :organisation
 
   has_many :messages
+
+  def body
+    ActionView::Base.full_sanitizer.sanitize(raw_html)
+  end
 end

@@ -16,18 +16,14 @@
 - @messages.each do |message|
   .ui.segment
     - if message.user_author
-      %b= "You said:"
+      %i= "You said:"
       %br
     - elsif message.person
-      %b= "#{message.person.first_name} said:"
+      %i= "#{message.person.first_name} said:"
       %br
     = message.body
 
-.ui.blue.segment= @response.body
-.ui.blue.segment= @response.raw_body
-.ui.blue.segment= @response.raw_text
-.ui.blue.segment= @response.raw_html
-
-%br
-%br
--# %h2= @response.grade
+.ui.segment
+  .ui.left.red.corner.label
+    .text= @response.grade
+  = @response.body

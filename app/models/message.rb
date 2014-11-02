@@ -21,4 +21,8 @@ class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :response
   belongs_to :organisation
+
+  def body
+    ActionView::Base.full_sanitizer.sanitize(raw_html)
+  end
 end
