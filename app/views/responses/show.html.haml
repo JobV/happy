@@ -5,7 +5,7 @@
 
 %p#notice= notice
 .replyform
-  = form_for @reply, remote: true do |f|
+  = form_for @reply do |f|
     .ui.form
       .field
         = f.hidden_field :response_id, value: @response.id

@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
         format.js {}
       end
     end
+    redirect_to @message.response
   end
 
   private
