@@ -4,14 +4,8 @@ class MessagesController < ApplicationController
     @message.person = @message.response.person
     @message.user = current_user
 
-    respond_to do |format|
-      if @message.save
-        email_person(@message) if @message.user_author
-        format.js {}
-      else
-        format.js {}
-      end
-    end
+    @message.save
+    email_person(@message) if @message.user_author
     redirect_to @message.response
   end
 
