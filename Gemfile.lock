@@ -141,13 +141,13 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
-    le (2.3.9)
     letter_opener (1.2.0)
       launchy (~> 2.2)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    logglier (0.2.11)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -331,8 +331,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  le
   letter_opener
+  logglier
   pg
   quiet_assets
   rails (= 4.2.0beta2)
