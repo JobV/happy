@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :email, class: OpenStruct do
     # Assumes Griddler.configure.to is :hash (default)
     to [{ full: 'to_user@email.com', email: 'to_user@email.com', token: 'to_user', host: 'email.com', name: nil }]
-    from 'user@email.com'
+     from({ token: 'from_user', host: 'email.com', email: 'user@email.com', full: 'From User <user@email.com>', name: 'From User' })
     subject 'email subject'
     body 'Hello! Here is some random content'
     attachments {[]}

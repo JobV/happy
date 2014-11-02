@@ -1,8 +1,7 @@
 class EmailProcessor
   def initialize(email)
     @email = email
-    @from = @email.from
-    warn "\nXXXXXXXXXX\nFrom address: #{@from}\n"
+    @from = @email.from[:email]
     @person = person
   end
 
