@@ -3,10 +3,10 @@
   -# = link_to root_path, class: 'item' do
   -#   %i.home.icon
   -#   Dashboard
-  = link_to responses_path, class: 'item' do
+  = link_to responses_path, class: navlinkclass('responses_page') do
     %i.comment.outline.icon
     Conversations
-  = link_to people_path, class: 'item' do
+  = link_to people_path, class: navlinkclass('people_page') do
     %i.users.basic.icon
     People
   = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'item'
