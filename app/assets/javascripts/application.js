@@ -19,6 +19,11 @@
 var ready;
 ready = function() {
   $('.ui.dropdown').dropdown();
+
+  $('.querybtn').click(function() {
+    $(this).addClass('active');
+    $(this).text('Queried!');
+  });
 };
 
 $(document).ready(ready);

@@ -1,10 +1,10 @@
 - @people_page = true
 
-%h2.ui.header
+%h2.ui.header.inverted.teal.tophead
   People
   .sub.header= "#{Person.count} people"
+  = link_to 'New Person', new_person_path, class: 'ui blue button'
 
-= link_to 'New Person', new_person_path, class: 'ui basic button'
 
 %table.ui.table.segment
   %tbody

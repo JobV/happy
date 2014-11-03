@@ -1,17 +1,18 @@
 - @responses_page = true
-.headerbw
-  = link_to 'Query Happiness', query_happiness_path, class: 'ui basic button', remote: true, method: :post
+.tophead.ui.inverted.teal.header
+  = link_to 'Query Happiness', query_happiness_path, class: 'ui toggle button querybtn', remote: true, method: :post
+  .sub.header= "Last query: #{Question.last.created_at.strftime('%e %b')}"
 
-= column_chart Response.group(:grade).count
+-# = column_chart Response.group(:grade).count
 
 - if @responses.count > 0
-  %table.ui.basic.table
-    %thead
-      %tr
-        %th Body
-        %th Grade
-        %th Person
-        %th{ colspan: '3' }
+  %table.ui.table.segment
+    -# %thead
+    -#   %tr
+    -#     %th Body
+    -#     %th Grade
+    -#     %th Person
+    -#     %th{ colspan: '3' }
 
     %tbody
       - @responses.each do |response|
