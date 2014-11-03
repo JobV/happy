@@ -19,6 +19,7 @@
 #  organisation_id        :integer
 #
 
+# Someone using the app
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

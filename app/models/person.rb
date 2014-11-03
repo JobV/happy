@@ -13,11 +13,12 @@
 #  organisation_id :integer
 #
 
+# Person is someone being emailed
 class Person < ActiveRecord::Base
   validates :email,
-           :first_name,
-           :last_name,
-           presence: true
+            :first_name,
+            :last_name,
+            presence: true
 
   has_many :responses
   has_many :messages
@@ -37,7 +38,7 @@ class Person < ActiveRecord::Base
   end
 
   def average_grade_last_3_responses
-    responses.order('id desc').limit(3).map { |c| c.grade }.sum / 3
+    responses.order('id desc').limit(3).map(&:grade).sum / 3
   end
 
   # if the last response from the person is before the last question,

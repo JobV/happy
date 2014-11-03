@@ -64,13 +64,13 @@ class ResponsesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_response
-      @conversations_page = true;
-      @response = Response.find(params[:id])
-    end
+  def set_response
+    @conversations_page = true;
+    @response = Response.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def response_params
-      params.require(:response).permit(:email, :body, :person_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def response_params
+    params.require(:response).permit(:email, :body, :person_id)
+  end
 end

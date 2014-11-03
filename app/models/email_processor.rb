@@ -1,3 +1,5 @@
+# Processes _all_ incoming email
+#
 class EmailProcessor
   def initialize(email)
     @email = email
@@ -33,7 +35,7 @@ class EmailProcessor
   end
 
   def create_response
-    response = Response.create(
+    Response.create(
       body: body,
       raw_text: raw_text,
       raw_body: raw_body,
@@ -44,11 +46,12 @@ class EmailProcessor
   end
 
   def grade
-    grade = body.match /\d{1,2}/
+    body.match(/\d{1,2}/)
   end
 
   def person
-    if person = Person.find_by(email: @from)
+    person = Person.find_by(email: @from)
+    if person
       return person
     else
       # Do not warn in tests, to keep clean

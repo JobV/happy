@@ -16,6 +16,7 @@
 #  raw_text        :text             default("")
 #
 
+# Message is a followup to a response
 class Message < ActiveRecord::Base
   belongs_to :person
   belongs_to :user
@@ -23,7 +24,7 @@ class Message < ActiveRecord::Base
   belongs_to :organisation
 
   def body
-    unless user_author || raw_html.empty?
+    if !user_author || !raw_html.empty?
       ActionView::Base.full_sanitizer.sanitize(raw_html)
     else
       attribute('body')
