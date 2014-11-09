@@ -1,7 +1,8 @@
 - @responses_page = true
-.tophead.ui.inverted.teal.header
-  = link_to 'Query Happiness', query_happiness_path, class: 'ui toggle button querybtn', remote: true, method: :post
+%h2.ui.header.inverted.teal.tophead
+  Conversations
   .sub.header= "Last query: #{Question.last.created_at.strftime('%e %b')}"
+  = link_to 'Query Happiness', query_happiness_path, class: 'ui toggle button querybtn', remote: true, method: :post
 
 -# = column_chart Response.group(:grade).count
 
