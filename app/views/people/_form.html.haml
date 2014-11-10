@@ -15,3 +15,5 @@
   .field= f.input :email
   .field= f.input :phone
   .field= f.submit 'Submit', class: 'ui blue submit button'
+= link_to @person, method: :delete, data: { confirm: 'Are you sure you want to delete this person?' }, class: 'ui basic right floated button' do
+  Delete

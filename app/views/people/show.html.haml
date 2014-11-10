@@ -1,4 +1,4 @@
-%h2.ui.header
+%h2.ui.header.inverted.blue.tophead
   = @person.full_name
   .sub.header
     = "Birthday on #{@person.birthdate.strftime("%B %e")}"
@@ -6,7 +6,17 @@
       %br
       = "Has an outstanding question."
 
-= link_to 'Edit', edit_person_path(@person), class: 'ui blue button'
+  = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
 .notice= notice
 %br
-= line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
+-# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
+
+.ui.selection.list
+  - @person.responses.each do |response|
+    = link_to response, class: 'item' do
+      .content
+        .header
+          - grade_label(response.grade) do
+            = response.grade
+          = "#{time_ago_in_words response.created_at} ago"
+        = response.body

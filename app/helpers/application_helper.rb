@@ -6,4 +6,16 @@ module ApplicationHelper
       'item'
     end
   end
+
+  def grade_label(grade)
+    color = case grade
+      when 0..5 then 'red'
+      when 6..7 then 'blue'
+      when 8..10 then 'green'
+      else 'black'
+    end
+    haml_tag :div, class: "ui #{color} label grade-label" do
+      yield
+    end
+  end
 end

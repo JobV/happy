@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   resources :organisations
-
   resources :questions
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :people
   resources :messages
+  resources :responses, path: '/conversations'
 
-  root to: 'dashboard#index'
-  resources :responses
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  root to: 'responses#index'
   get '/admin', to: 'admin#index', as: :admin
   devise_for :users
   mount_griddler

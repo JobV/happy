@@ -6,19 +6,12 @@
   = link_to 'New Person', new_person_path, class: 'ui blue button'
 
 
-%table.ui.table.segment
-  %tbody
-    - @people.each do |person|
-      %tr.hover-show
-        %td= person.last_response_grade
-        %td= link_to person.full_name, person
-        %td.text-right
-          .ui.small.basic.buttons.hover-display
-            = link_to 'Edit', edit_person_path(person), class: 'ui button'
-            .ui.small.dropdown.icon.button
-              %i.dropdown.icon
-              .menu
-                .item
-                  = link_to person, method: :delete, data: { confirm: 'Are you sure you want to delete this person?' } do
-                    %i.delete.icon
-                    Delete
+.ui.selection.list
+  - @people.each do |person|
+    = link_to person, class: 'item hover-show' do
+      - grade_label(person.last_response_grade) do
+        = person.last_response_grade
+      .content
+        .header= person.full_name
+        - if person.has_outstanding_query?
+          = "Has an outstanding question."
