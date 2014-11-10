@@ -2,26 +2,19 @@
 %h2.ui.header.inverted.teal.tophead
   Conversations
   .sub.header= "Last query: #{Question.last.created_at.strftime('%e %b')}"
-  = link_to 'Query Happiness', query_happiness_path, class: 'ui toggle button querybtn', remote: true, method: :post
+  = link_to 'Query Happiness', query_happiness_path, class: 'ui blue toggle button querybtn', remote: true, method: :post
 
 -# = column_chart Response.group(:grade).count
 
 - if @responses.count > 0
-  %table.ui.table.segment
-    -# %thead
-    -#   %tr
-    -#     %th Body
-    -#     %th Grade
-    -#     %th Person
-    -#     %th{ colspan: '3' }
-
-    %tbody
-      - @responses.each do |response|
-        %tr
-          %td= response.body
-          %td= response.grade
-          %td= response.person.first_name if response.person && response.person.first_name
-          %td= link_to 'Show', response, class: 'ui small basic button'
-          %td= link_to 'Destroy', response, method: :delete, class: 'ui small basic button'
+  .ui.selection.list
+    - @responses.each do |response|
+      = link_to response, class: 'item' do
+        .content
+          - grade_label(response.grade) do
+            = response.grade
+          %b= response.person.full_name
+          = "#{time_ago_in_words response.updated_at} ago"
+          = response.body
 - else
   Nothing here

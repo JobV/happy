@@ -20,7 +20,7 @@
 class Message < ActiveRecord::Base
   belongs_to :person
   belongs_to :user
-  belongs_to :response
+  belongs_to :response, touch: true
   belongs_to :organisation
 
   def body

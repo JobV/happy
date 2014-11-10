@@ -12,7 +12,7 @@
 -# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
 
 .ui.selection.list
-  - @person.responses.each do |response|
+  - @person.responses.order(updated_at: :desc).each do |response|
     = link_to response, class: 'item' do
       .content
         .header

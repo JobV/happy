@@ -30,7 +30,7 @@ class Person < ActiveRecord::Base
   end
 
   def last_response_grade
-    responses.last ? responses.last.grade : 'x'
+    responses.last ? responses.last.grade : '-'
   end
 
   def average_grade

@@ -3,14 +3,14 @@ class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
 
   def index
-    @responses = Response.all
+    @responses = Response.all.order(updated_at: :desc)
   end
 
   # GET /responses/1
   # GET /responses/1.json
   def show
     @reply = @response.messages.new
-    @messages = @response.messages.order(created_at: :desc)
+    @messages = @response.messages
   end
 
   # GET /responses/new

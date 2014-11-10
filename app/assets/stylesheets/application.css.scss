@@ -30,6 +30,11 @@ a {
   text-align: right;
 }
 
+.float-right {
+  float: right;
+  z-index: 101;
+}
+
 .tophead {
   padding: 25px !important;
   margin: 0px -23px !important;
@@ -43,4 +48,8 @@ a {
 .grade-label {
   text-align: center;
   min-width: 39px;
+}
+
+.ui.sidebar {
+  overflow-y: visible;
 }

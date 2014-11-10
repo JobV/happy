@@ -5,7 +5,6 @@
   .sub.header= "#{Person.count} people"
   = link_to 'New Person', new_person_path, class: 'ui blue button'
 
-
 .ui.selection.list
   - @people.each do |person|
     = link_to person, class: 'item hover-show' do
