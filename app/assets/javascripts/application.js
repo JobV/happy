@@ -24,6 +24,10 @@ ready = function() {
     $(this).addClass('active');
     $(this).text('Queried!');
   });
+
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').fadeOut();
+  });
 };
 
 $(document).ready(ready);

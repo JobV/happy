@@ -7,8 +7,8 @@
       = "Has an outstanding question."
 
   = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
-.notice= notice
-%br
+
+= semantic_flash
 -# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
 
 .ui.selection.list
