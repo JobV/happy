@@ -9,4 +9,9 @@
 #
 
 class Organisation < ActiveRecord::Base
+  has_many :users
+  has_many :people
+  has_many :responses
+  has_many :messages
+  has_many :questions
 end

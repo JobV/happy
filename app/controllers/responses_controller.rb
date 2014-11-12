@@ -3,7 +3,7 @@ class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
 
   def index
-    @responses = Response.all.order(updated_at: :desc)
+    @responses = current_user.organisation.responses.order(updated_at: :desc)
   end
 
   # GET /responses/1

@@ -342,6 +342,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   rails_best_practices
+  responders (~> 2.0)
   rspec-its
   rspec-rails
   sass-rails (= 5.0.0.beta1)

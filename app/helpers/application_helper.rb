@@ -18,4 +18,14 @@ module ApplicationHelper
       yield
     end
   end
+
+  def current_org
+    current_user.organisation
+  end
+
+  def header
+    haml_tag :h2, class: 'ui header inverted teal tophead' do
+      yield
+    end
+  end
 end
