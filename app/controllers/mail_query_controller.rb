@@ -1,4 +1,6 @@
 class MailQueryController < ApplicationController
+  def settings
+  end
 
   def happiness
     Person.all.each do |p|

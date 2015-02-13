@@ -1,0 +1,18 @@
+.session-box
+  .ui.segment
+    %h1.ui.header
+      Settings
+
+    .ui.form
+      .field
+        .ui.selection.dropdown
+          %input{:name => "gender", :type => "hidden"}
+          .default.text Interval
+          %i.dropdown.icon
+          .menu
+            .item{"data-value" => "2"} Every week
+            .item{"data-value" => "1"} Every 2 weeks
+            .item{"data-value" => "0"} Every month
+      .field
+        .ui.submit.blue.button
+          Save
