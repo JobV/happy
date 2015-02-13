@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  root to: 'responses#index'
+  root to: 'dashboard#index'
   get '/admin', to: 'admin#index', as: :admin
   devise_for :users
   mount_griddler

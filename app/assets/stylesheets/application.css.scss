@@ -1,55 +1,11 @@
-@import 'semantic-ui';
-@import 'sessions';
+@import "semantic-ui";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,600,700,900);
-$sidebar-width: 200px;
 
-html, body {
-  height: 100%;
-  font-family: 'Open Sans';
-  background: #f9f9f9;
+body {
+  background: white;
 }
 
-.main {
-  margin-left: $sidebar-width;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.hover-display {
-  opacity: 0 !important
-}
-.hover-show:hover .hover-display {
-  opacity: 1 !important
-}
-
-.text-right {
-  text-align: right;
-}
-
-.float-right {
-  float: right;
-  z-index: 101;
-}
-
-.tophead {
-  padding: 25px !important;
-  margin: 0px -23px !important;
-  margin-top: -8px !important;
-}
-
-.ui.header a.button {
-  margin-top: 15px;
-}
-
-.grade-label {
-  text-align: center;
-  min-width: 39px;
-}
-
-.ui.sidebar {
-  overflow-y: visible;
+.session-box {
+  max-width: 320px;
+  margin: 0 auto;
 }

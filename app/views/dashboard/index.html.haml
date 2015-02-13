@@ -1,4 +1,31 @@
-- @dashboard_page = true
-%h2 Today
+.ui.page.grid
+  .column
+    .ui.center.aligned.basic.segment
+      .ui.statistic
+        .value
+          = @people.count
+        .label
+          People are happy!
 
-%h2 Yesterday
+
+    %table.ui.table
+      %thead
+        %tr
+          %th Name
+          %th action required
+          %th.right.aligned status
+      %tbody
+        - @people.each do |p|
+          %tr
+            %td= p.full_name
+            %td
+            %td.right.aligned
+              .ui.green.label
+                Good
+
+      %tfoot
+        %tr.full-width.active
+          %th
+          %th{ colspan: '4' }
+            = link_to new_person_path, class: "ui right floated primary button" do
+              Add User

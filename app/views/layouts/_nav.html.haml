@@ -1,0 +1,10 @@
+.ui.secondary.pointing.menu
+  %a.active.item
+    %i.home.icon
+  .right.menu
+    .ui.dropdown.item
+      %i.icon.dropdown
+      .menu
+        = link_to destroy_user_session_path, class: 'item', method: :delete do
+          %i.sign.out.icon
+          Sign out
