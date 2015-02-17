@@ -23,7 +23,7 @@ gem 'pg'
 gem 'rails_admin'
 gem 'responders', '~> 2.0'
 gem 'pikaday-gem'
-
+gem 'simple_form'
 
 group :production do
   gem 'rails_12factor'

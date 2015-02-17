@@ -1,10 +1,7 @@
-.session-box
-  %br
-  %br
-  .ui.form.segment
-    = form_for @organisation do |f|
-      .field
-        = f.label :name
-        = f.text_field :name
-      .actions
-        = f.submit "Save it!", class: 'ui blue submit button'
+.ui.form.segment
+  = form_for @organisation do |f|
+    .field
+      = f.label :name
+      = f.text_field :name
+    .actions
+      = f.submit "Save it!", class: 'ui blue submit button'
