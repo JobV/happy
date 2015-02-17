@@ -1,22 +1,26 @@
-%h2.ui.header.inverted.blue.tophead
-  = @person.full_name
-  .sub.header
-    = "Birthday on #{@person.birthdate.strftime("%B %e")}"
-    - if @person.has_outstanding_query?
-      %br
-      = "Has an outstanding question."
+.ui.page.grid
+  .column
+    .ui.center.aligned.basic.segment
 
-  = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
+      %h2.ui.header.inverted.blue.tophead
+        = @person.full_name
+        .sub.header
+          = "Birthday on #{@person.birthdate.strftime("%B %e")}"
+          - if @person.has_outstanding_query?
+            %br
+            = "Has an outstanding question."
 
-= semantic_flash
--# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
+        = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
 
-.ui.selection.list
-  - @person.responses.order(updated_at: :desc).each do |response|
-    = link_to response, class: 'item' do
-      .content
-        .header
-          - grade_label(response.grade) do
-            = response.grade
-          = "#{time_ago_in_words response.created_at} ago"
-        = response.body
+      = semantic_flash
+      -# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
+
+      .ui.selection.list
+        - @person.responses.order(updated_at: :desc).each do |response|
+          = link_to response, class: 'item' do
+            .content
+              .header
+                - grade_label(response.grade) do
+                  = response.grade
+                = "#{time_ago_in_words response.created_at} ago"
+              = response.body

@@ -1,6 +1,6 @@
-.headerbw
-  %h1= "Editing #{@person.first_name}"
-= render 'form'
-= link_to 'Show', @person
-|
-\#{link_to 'Back', people_path}
+.med-box
+  %h2.ui.orange.header
+    = "Editing #{@person.first_name}"
+
+  = render 'form'
+  = link_to 'Show', @person

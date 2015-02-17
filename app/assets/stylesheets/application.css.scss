@@ -1,3 +1,7 @@
+/*
+*= require pikaday
+*/
+
 @import "semantic-ui";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:200,300,600,700,900);
 
@@ -7,5 +11,10 @@ body {
 
 .session-box {
   max-width: 320px;
+  margin: 0 auto;
+}
+
+.med-box {
+  max-width: 500px;
   margin: 0 auto;
 }

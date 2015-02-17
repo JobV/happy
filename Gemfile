@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
 gem 'autoprefixer-rails'
-gem 'simple_form'
 gem 'haml'
 gem 'haml-rails'
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass', branch: 'v1.0beta'
@@ -23,6 +22,8 @@ gem 'groupdate'
 gem 'pg'
 gem 'rails_admin'
 gem 'responders', '~> 2.0'
+gem 'pikaday-gem'
+
 
 group :production do
   gem 'rails_12factor'

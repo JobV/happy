@@ -1,4 +1,4 @@
-= simple_form_for(@person, html: { class: 'ui form segment'} ) do |f|
+= form_for(@person, html: { class: 'ui form segment'} ) do |f|
   - if @person.errors.any?
     .ui.error.message
       %h4
@@ -7,13 +7,24 @@
       %ul
         - @person.errors.full_messages.each do |message|
           %li= message
-  .field= f.input :first_name
-  .field= f.input :last_name
   .field
-    %label Birthday
-    = f.datetime_select :birthdate
-  .field= f.input :email
-  .field= f.input :phone
+    %label First name
+    = f.text_field :first_name
+  .field
+    %label Last name
+    = f.text_field :last_name
+  .field
+    %label
+      = f.label 'Birthdate'
+    .ui.left.icon.input
+      %input{ type: :text, id: 'datepicker', name: 'event[date]', value: @date}
+      %i.calendar.icon
+  .field
+    %label Email
+    = f.text_field :email
+  .field
+    %label Phone
+    = f.text_field :phone
   .field= f.submit 'Submit', class: 'ui blue submit button'
 = link_to @person, method: :delete, data: { confirm: 'Are you sure you want to delete this person?' }, class: 'ui basic right floated button' do
   Delete
