@@ -25,6 +25,8 @@
       %tfoot
         %tr.full-width.active
           %th
+            = link_to query_happiness_path, class: "ui default button", method: :post do
+              Query everyone
           %th{ colspan: '4' }
             = link_to new_person_path, class: "ui right floated primary button" do
               Add User

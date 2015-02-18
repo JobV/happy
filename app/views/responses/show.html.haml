@@ -6,7 +6,6 @@
         = "Conversation with #{@response.person.first_name}"
         .sub.header= "#{@response.created_at.strftime("%B %e")}"
 
-
       %p#notice= notice
       .replyform
         = form_for @reply do |f|

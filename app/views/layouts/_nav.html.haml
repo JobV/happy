@@ -5,6 +5,10 @@
     .ui.dropdown.item
       %i.icon.dropdown
       .menu
+        = link_to subscription_path, class: 'item' do
+          %i.refresh.icon
+          Subscription
+
         = link_to settings_path, class: 'item' do
           %i.settings.icon
           Settings

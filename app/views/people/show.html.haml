@@ -1,26 +1,37 @@
-.ui.page.grid
-  .column
-    .ui.center.aligned.basic.segment
+= semantic_flash
 
-      %h2.ui.header.inverted.blue.tophead
-        = @person.full_name
-        .sub.header
-          = "Birthday on #{@person.birthdate.strftime("%B %e")}"
-          - if @person.has_outstanding_query?
-            %br
-            = "Has an outstanding question."
+.center
+  %h1.ui.teal.header
+    = @person.full_name
+    .sub.header
+      - if @person.has_outstanding_query?
+        %br
+        = "Has an outstanding question."
 
-        = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
+  .ui.statistic
+    .value
+      = @person.responses.last.grade
+    .label
+      = "#{@person.first_name}'s most recent status"
 
-      = semantic_flash
-      -# = line_chart @person.responses.group_by_week(:created_at).maximum(:grade)
+.med-box
+  = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
 
-      .ui.selection.list
-        - @person.responses.order(updated_at: :desc).each do |response|
-          = link_to response, class: 'item' do
-            .content
-              .header
-                - grade_label(response.grade) do
-                  = response.grade
-                = "#{time_ago_in_words response.created_at} ago"
-              = response.body
+  - @person.responses.order(updated_at: :desc).each do |response|
+    .ui.top.attached.segment
+      - grade_label(response.grade) do
+        = response.grade
+      = "Conversation at #{response.date}"
+
+    .ui.bottom.attached.segment
+      = form_for response.messages.new do |f|
+        .ui.form
+          .field
+            = f.hidden_field :response_id, value: response.id
+            = f.hidden_field :user_author, value: true
+            = f.text_area :body, placeholder: "Reply to #{response.person.first_name}"
+          = f.submit 'Send', class: 'ui blue button'
+
+      - response.messages.each do |message|
+        = message.body
+        .ui.divider

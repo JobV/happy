@@ -16,7 +16,6 @@
 #
 
 class Response < ActiveRecord::Base
-
   belongs_to :person
   belongs_to :organisation
 
@@ -24,5 +23,9 @@ class Response < ActiveRecord::Base
 
   def body
     ActionView::Base.full_sanitizer.sanitize(raw_html)
+  end
+
+  def date
+    created_at.strftime("%B %e")
   end
 end

@@ -14,7 +14,7 @@ module ApplicationHelper
       when 8..10 then 'green'
       else 'black'
     end
-    haml_tag :div, class: "ui #{color} label grade-label" do
+    haml_tag :div, class: "ui #{color} horizontal label grade-label" do
       yield
     end
   end
