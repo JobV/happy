@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   get '/subscription', to: 'dashboard#subscription', as: :subscription
   # get '/dashboard',     to: 'dashboard#index', as: :dashboard
   # get '/conversations', to: 'responses#index', as: :conversations
+  post '/people/:id/generate_response',
+    to: 'people#generate_response',
+    as: :generate_response
+
   post '/query_happiness', to: 'mail_query#happiness', as: :query_happiness
 end

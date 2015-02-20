@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
     @message.save
     email_person(@message) if @message.user_author
-    redirect_to @message.response
+    redirect_to @message.person
   end
 
   private

@@ -23,6 +23,10 @@ class Message < ActiveRecord::Base
   belongs_to :response, touch: true
   belongs_to :organisation
 
+  def date
+    created_at.strftime("%B %e")
+  end
+
   def body
     if !user_author || !raw_html.empty?
       ActionView::Base.full_sanitizer.sanitize(raw_html)

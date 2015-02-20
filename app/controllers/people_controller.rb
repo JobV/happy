@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @person = Person.includes(responses: :messages).find(params[:id])
   end
 
   # GET /people/new
@@ -59,6 +60,20 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def generate_response
+    person = Person.find(params[:id])
+    if Rails.env == 'development'
+      response = person.responses.find_by(id: params[:response_id])
+      response.messages.create(response_id: params[:response_id],
+                            user_author: false,
+                            body: 'WOOP WOOP',
+                            raw_html: 'WOOP WOOP',
+                            user_id: current_user.id,
+                            person_id: params[:person_id])
+      redirect_to person
     end
   end
 

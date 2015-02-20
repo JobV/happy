@@ -9,10 +9,10 @@ module ApplicationHelper
 
   def grade_label(grade)
     color = case grade
-      when 0..5 then 'red'
-      when 6..7 then 'blue'
-      when 8..10 then 'green'
-      else 'black'
+            when 0..5 then 'red'
+            when 6..7 then 'blue'
+            when 8..10 then 'green'
+            else 'black'
     end
     haml_tag :div, class: "ui #{color} horizontal label grade-label" do
       yield
@@ -27,5 +27,9 @@ module ApplicationHelper
     haml_tag :h2, class: 'ui header inverted teal tophead' do
       yield
     end
+  end
+
+  def debug?
+    Rails.env == 'development' && params.key?(:d)
   end
 end

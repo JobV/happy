@@ -23,6 +23,23 @@
         = response.grade
       = "Conversation at #{response.date}"
 
+      - if debug?
+        = link_to generate_response_path( response_id: response.id, person_id: @person.id ), method: :post, class: "ui right floated button" do
+          Generate response
+    .ui.attached.segment
+      - response.messages.order(created_at: :asc).each do |message|
+        .ui.basic.segment
+          .ui.tiny.disabled.header
+            - unless message.user_author
+              %i= "#{@person.first_name} said on #{message.date}:"
+              %br
+            - else
+              %i= "You said on #{message.date}:"
+              %br
+
+
+          = message.body
+
     .ui.bottom.attached.segment
       = form_for response.messages.new do |f|
         .ui.form
@@ -31,7 +48,3 @@
             = f.hidden_field :user_author, value: true
             = f.text_area :body, placeholder: "Reply to #{response.person.first_name}"
           = f.submit 'Send', class: 'ui blue button'
-
-      - response.messages.each do |message|
-        = message.body
-        .ui.divider
