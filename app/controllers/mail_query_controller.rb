@@ -23,6 +23,7 @@ class MailQueryController < ApplicationController
       people.each do |p|
         Response.create(
           body: "it's alright",
+          raw_html: "it's alright",
           email: p.email,
           grade: Random.rand(10),
           person: p)

@@ -22,7 +22,11 @@ class Response < ActiveRecord::Base
   has_many :messages
 
   def body
-    ActionView::Base.full_sanitizer.sanitize(raw_html)
+    if !raw_html.empty?
+      ActionView::Base.full_sanitizer.sanitize(raw_html)
+    else
+      attribute('body')
+    end
   end
 
   def date

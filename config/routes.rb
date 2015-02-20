@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :organisations
   resources :questions
-  resources :people
+  resources :people, except: [:index]
   resources :messages
   resources :responses, path: '/conversations'
 

@@ -3,6 +3,8 @@
 .center
   %h1.ui.teal.header
     = @person.full_name
+    = link_to edit_person_path(@person) do
+      %i.grey.setting.icon
     .sub.header
       - if @person.has_outstanding_query?
         %br
@@ -12,33 +14,45 @@
     .value
       = @person.responses.last.grade
     .label
-      = "#{@person.first_name}'s most recent status"
+      = "most recent status"
+
+  .ui.statistic
+    .value
+      = @person.average_grade_last_3_responses
+    .label
+      = "average status"
 
 .med-box
-  = link_to 'Edit', edit_person_path(@person), class: 'ui black button'
-
-  - @person.responses.order(updated_at: :desc).each do |response|
+  - @person.responses.order(updated_at: :desc).limit(2).each do |response|
     .ui.top.attached.segment
       - grade_label(response.grade) do
         = response.grade
       = "Conversation at #{response.date}"
+    .ui.attached.segment
+      .ui.basic.segment
+        .ui.tiny.disabled.header
+          %i= "#{@person.first_name} said on #{response.date}:"
+          %br
+        = response.body
 
       - if debug?
         = link_to generate_response_path( response_id: response.id, person_id: @person.id ), method: :post, class: "ui right floated button" do
           Generate response
-    .ui.attached.segment
-      - response.messages.order(created_at: :asc).each do |message|
-        .ui.basic.segment
-          .ui.tiny.disabled.header
-            - unless message.user_author
-              %i= "#{@person.first_name} said on #{message.date}:"
-              %br
-            - else
-              %i= "You said on #{message.date}:"
-              %br
+
+    - if response.messages.count > 0
+      .ui.attached.segment
+        - response.messages.order(created_at: :asc).each do |message|
+          .ui.basic.segment
+            .ui.tiny.disabled.header
+              - unless message.user_author
+                %i= "#{@person.first_name} said on #{message.date}:"
+                %br
+              - else
+                %i= "You said on #{message.date}:"
+                %br
 
 
-          = message.body
+            = message.body
 
     .ui.bottom.attached.segment
       = form_for response.messages.new do |f|
@@ -47,4 +61,4 @@
             = f.hidden_field :response_id, value: response.id
             = f.hidden_field :user_author, value: true
             = f.text_area :body, placeholder: "Reply to #{response.person.first_name}"
-          = f.submit 'Send', class: 'ui blue button'
+          = f.submit 'Send', class: 'ui right floated teal button'
