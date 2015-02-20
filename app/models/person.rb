@@ -41,14 +41,14 @@ class Person < ActiveRecord::Base
     responses.order('id desc').limit(3).map(&:grade).sum / 3
   end
 
-  # if the last response from the person is before the last question,
-  # there is an outstanding query
   def outstanding_query?
-    if Question.any? && responses.any?
-      responses.last.created_at < Question.last.created_at
-    elsif Question.any?
-      true
-    end
+    last_question = organisation.questions.last
+
+    # return false unless the last question was more recent that this person
+    return false unless last_question && last_question > created_at
+
+    # and the last question was more recent than the last response, then YES
+    responses.last.created_at < last_question.created_at
   end
   alias_method :has_outstanding_query?, :outstanding_query?
 end

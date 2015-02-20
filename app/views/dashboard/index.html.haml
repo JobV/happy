@@ -11,13 +11,11 @@
       %thead
         %tr
           %th Name
-          %th action required
           %th.right.aligned status
       %tbody
         - @people.each do |p|
           %tr
             %td= link_to p.full_name, person_path(p)
-            %td
             %td.right.aligned
               .ui.green.label
                 Good
