@@ -2,11 +2,12 @@
 #
 # Table name: organisations
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  query_frequency :integer          default("0")
+#  id                 :integer          not null, primary key
+#  name               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  query_frequency    :integer          default("0")
+#  subscription_until :datetime
 #
 
 require 'rails_helper'

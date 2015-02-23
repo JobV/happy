@@ -2,11 +2,12 @@
 #
 # Table name: organisations
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  query_frequency :integer          default("0")
+#  id                 :integer          not null, primary key
+#  name               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  query_frequency    :integer          default("0")
+#  subscription_until :datetime
 #
 
 class Organisation < ActiveRecord::Base
@@ -29,7 +30,7 @@ class Organisation < ActiveRecord::Base
       email_person(p)
     end
 
-    questions.create!(user: users.first)
+    questions.create(user: users.first)
   end
 
   def should_query?
