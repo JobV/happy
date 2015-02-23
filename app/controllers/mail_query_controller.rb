@@ -3,22 +3,28 @@ class MailQueryController < ApplicationController
   end
 
   def happiness
-    people = current_user.organisation.people
-
     people.each do |p|
-      begin
-        QuestionMailer.happiness(p).deliver_later
-      rescue Net::SMTPAuthenticationError,
-             Net::SMTPServerBusy,
-             Net::SMTPSyntaxError,
-             Net::SMTPFatalError,
-             Net::SMTPUnknownError
-        flash[:error] << "Something went wrong with #{p.first_name}"
-      end
+      email_person(p)
     end
+    Question.create(user: current_user,
+                    organisation: current_user.organisation)
 
-    Question.create(user: current_user)
+    # if dev, immediately everyone respond
+    dev_behavior
 
+    respond_to do |f|
+      f.js {}
+      f.html { redirect_to root_path }
+    end
+  end
+
+  private
+
+  def people
+    current_user.organisation.people
+  end
+
+  def dev_behavior
     if Rails.env == 'development'
       people.each do |p|
         Response.create(
@@ -29,10 +35,15 @@ class MailQueryController < ApplicationController
           person: p)
       end
     end
+  end
 
-    respond_to do |f|
-      f.js {}
-      f.html { redirect_to root_path }
-    end
+  def email_person(p)
+    QuestionMailer.happiness(p).deliver_later
+    rescue Net::SMTPAuthenticationError,
+           Net::SMTPServerBusy,
+           Net::SMTPSyntaxError,
+           Net::SMTPFatalError,
+           Net::SMTPUnknownError
+      flash[:error] << "Something went wrong with #{p.first_name}"
   end
 end

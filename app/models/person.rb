@@ -45,7 +45,7 @@ class Person < ActiveRecord::Base
     last_question = organisation.questions.last
 
     # return false unless the last question was more recent that this person
-    return false unless last_question && last_question > created_at
+    return false unless last_question && last_question.created_at > created_at
 
     # and the last question was more recent than the last response, then YES
     responses.last.created_at < last_question.created_at

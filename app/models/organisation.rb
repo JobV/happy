@@ -14,4 +14,6 @@ class Organisation < ActiveRecord::Base
   has_many :responses
   has_many :messages
   has_many :questions
+
+  enum query_frequency: [:weekly, :two_weekly, :monthly]
 end

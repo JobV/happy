@@ -22,5 +22,6 @@ FactoryGirl.define do
     birthdate "2014-10-12 01:15:32"
     email "pete@example.com"
     phone "MyString"
+    organisation
   end
 end

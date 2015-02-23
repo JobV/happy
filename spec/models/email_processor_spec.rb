@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EmailProcessor, :type => :model do
+RSpec.describe EmailProcessor, type: :model do
 
   context 'User emails after happiness query' do
     before do
@@ -15,7 +15,7 @@ RSpec.describe EmailProcessor, :type => :model do
     end
 
     it 'creates a new Response on reception of the email' do
-      expect{ @processor.process }.to change{ Response.count }.by(1)
+      expect { @processor.process }.to change { Response.count }.by(1)
     end
 
     it 'the parser parses the number from the body of the email' do

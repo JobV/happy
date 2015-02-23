@@ -15,4 +15,6 @@ class Question < ActiveRecord::Base
   belongs_to :user
   belongs_to :organisation
   has_and_belongs_to_many :people
+
+  validates :user_id, :organisation_id, presence: true
 end

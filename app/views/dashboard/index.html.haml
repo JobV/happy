@@ -1,30 +1,29 @@
-.ui.page.grid
-  .column
-    .ui.center.aligned.basic.segment
-      .ui.statistic
-        .value
-          = @people.count
-        .label
-          People are happy!
+.med-box
+  .ui.center.aligned.basic.segment
+    .ui.statistic
+      .value
+        = @people.count
+      .label
+        People are happy!
 
-    %table.ui.unstackable.table
-      %thead
+  %table.ui.unstackable.table
+    %thead
+      %tr
+        %th Name
+        %th.right.aligned status
+    %tbody
+      - @people.each do |p|
         %tr
-          %th Name
-          %th.right.aligned status
-      %tbody
-        - @people.each do |p|
-          %tr
-            %td= link_to p.full_name, person_path(p)
-            %td.right.aligned
-              .ui.green.label
-                Good
+          %td= link_to p.full_name, person_path(p)
+          %td.right.aligned
+            .ui.green.label
+              Good
 
-      %tfoot
-        %tr.full-width.active
-          %th
-            = link_to query_happiness_path, class: "ui default button", method: :post do
-              Query everyone
-          %th{ colspan: '4' }
-            = link_to new_person_path, class: "ui right floated primary button" do
-              Add User
+    %tfoot
+      %tr.full-width.active
+        %th
+          = link_to query_happiness_path, class: "ui default button", method: :post do
+            Query everyone
+        %th{ colspan: '4' }
+          = link_to new_person_path, class: "ui right floated primary button" do
+            Add User
