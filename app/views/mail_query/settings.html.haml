@@ -5,16 +5,8 @@
 
     %h3.ui.teal.header
       How often should we ask your colleagues how they are?
-    .ui.form
+
+    = form_for @organisation, html: { class: 'ui form' } do |f|
       .field
-        .ui.selection.dropdown
-          %input{:name => "gender", :type => "hidden"}
-          .default.text Interval
-          %i.dropdown.icon
-          .menu
-            .item{"data-value" => "2"} Every week
-            .item{"data-value" => "1"} Every 2 weeks
-            .item{"data-value" => "0"} Every month
-      .field
-        .ui.submit.blue.button
-          Save
+        = f.select :query_frequency, options_for_select(@query_freqs.collect { |s| [s[0].humanize, s[0]] }, selected: @organisation.query_frequency), {}, class: 'ui selection dropdown'
+      .field= f.submit 'Save', class: 'ui blue submit button'

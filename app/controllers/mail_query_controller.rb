@@ -1,5 +1,7 @@
 class MailQueryController < ApplicationController
   def settings
+    @organisation = current_user.organisation
+    @query_freqs = Organisation.query_frequencies
   end
 
   def happiness

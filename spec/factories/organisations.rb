@@ -2,10 +2,11 @@
 #
 # Table name: organisations
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  query_frequency :integer          default("0")
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
