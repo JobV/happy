@@ -5,11 +5,7 @@ class MailQueryController < ApplicationController
   end
 
   def happiness
-    people.each do |p|
-      email_person(p)
-    end
-    Question.create(user: current_user,
-                    organisation: current_user.organisation)
+    current_user.organisation.send_out_query
 
     # if dev, immediately everyone respond
     dev_behavior
@@ -37,15 +33,5 @@ class MailQueryController < ApplicationController
           person: p)
       end
     end
-  end
-
-  def email_person(p)
-    QuestionMailer.happiness(p).deliver_later
-    rescue Net::SMTPAuthenticationError,
-           Net::SMTPServerBusy,
-           Net::SMTPSyntaxError,
-           Net::SMTPFatalError,
-           Net::SMTPUnknownError
-      flash[:error] << "Something went wrong with #{p.first_name}"
   end
 end

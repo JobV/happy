@@ -12,9 +12,16 @@
 require 'rails_helper'
 
 RSpec.describe Organisation, :type => :model do
-  describe '#should_query?' do
-    let(:org) { create(:organisation) }
+  let(:org) { create(:organisation) }
+  describe '#send_out_query' do
+    it 'creates a new question' do
+      expect(org.send_out_query).to change {
+        Question.count
+      }.by 1
+    end
+  end
 
+  describe '#should_query?' do
     it 'returns true if no questions' do
       expect(org.should_query?).to eq true
     end
