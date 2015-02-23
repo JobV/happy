@@ -15,9 +15,8 @@ RSpec.describe Organisation, :type => :model do
   let(:org) { create(:organisation) }
   describe '#send_out_query' do
     it 'creates a new question' do
-      expect(org.send_out_query).to change {
-        Question.count
-      }.by 1
+      expect(org.should_query?).to eq true
+      expect { org.send_out_query }.to change { org.questions.count }.by 1
     end
   end
 

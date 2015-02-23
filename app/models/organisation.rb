@@ -24,10 +24,12 @@ class Organisation < ActiveRecord::Base
 
   def send_out_query
     return false unless subscribed?
+
     people.each do |p|
       email_person(p)
     end
-    questions.create(user: users.first)
+
+    questions.create!(user: users.first)
   end
 
   def should_query?

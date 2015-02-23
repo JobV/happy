@@ -14,5 +14,8 @@
 FactoryGirl.define do
   factory :organisation do
     name "MyString"
+    after(:create) do |organisation|
+      create_list(:user, 1, organisation: organisation)
+    end
   end
 end
